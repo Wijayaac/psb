@@ -1,0 +1,1 @@
+<script src="<?= base_url('assets/dist/js/jquery.min.js') ?>"></script>
