@@ -24,10 +24,7 @@ class UserMigration extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'photo' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ],
+            'photo varchar(255) NOT NULL DEFAULT "untitled.png"',
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
