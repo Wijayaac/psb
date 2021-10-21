@@ -6,6 +6,6 @@
             <li class="breadcrumb-item active" aria-current="page">Home</li>
         </ol>
     </nav>
-    <a href="/auth/logout">Logout</a>
+    <a /auth/logout">Logout</a>
 </div>
 <?= $this->endSection() ?>

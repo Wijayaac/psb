@@ -41,7 +41,7 @@
             </div>
 
             <button class="w-100 btn btn-lg my-1 btn-success" type="submit">Sign in</button>
-            <a href="/auth/register" class="w-100 btn btn-sm my-1 btn-outline-primary" type="submit">Register here</a>
+            <a href="<?= site_url('/auth/register') ?>" class="w-100 btn btn-sm my-1 btn-outline-primary" type="submit">Register here</a>
             <p class="mt-5 mb-3 text-muted">PSB online &copy; 2021</p>
         </form>
     </main>

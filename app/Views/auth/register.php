@@ -51,7 +51,7 @@
             <?php } ?>
 
             <button class="w-100 btn btn-lg my-1 btn-success" type="submit">Register</button>
-            <a href="/auth/login" class="w-100 btn btn-sm my-1 btn-outline-primary">already have an account ? Login here</a>
+            <a href="<?= site_url('/auth/login') ?>" class="w-100 btn btn-sm my-1 btn-outline-primary">already have an account ? Login here</a>
             <p class="mt-5 mb-3 text-muted">PSB online &copy; 2021</p>
         </form>
     </main>

@@ -26,7 +26,7 @@
 
             </h2>
             <p>Create new account used before you can register into school you want to be there, but if you can see this its mean you already create an account, congratulations so head to the next steps.</p>
-            <a href="/auth/register" class="icon-link text-muted text-secondary">
+            <a href="<?= site_url('/auth/register') ?>" class="icon-link text-muted text-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill text-success" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                 </svg>
@@ -45,7 +45,7 @@
             </div>
             <h2>Choose School</h2>
             <p>Pick your favorite school, don't forget to prepare document and any terms and conditions base on your school choice. You can register as much as possible schools. </p>
-            <a href="/user/register" class="icon-link text-warning">
+            <a href="<?= site_url('/user/registration') ?>" class="icon-link text-warning">
                 Register now
                 <svg class="bi" width="1em" height="1em">
                     <use xlink:href="#chevron-right" />
@@ -62,7 +62,7 @@
             <h2>
                 Graduation Announcement</h2>
             <p>Please wait for the selection results from the committee. Once you registered and meet the qualification, just wait for the announcement. And we hope you can join your favourite school.</p>
-            <a href="/user/announcement" class="icon-link text-success">
+            <a href="<?= site_url('/user/status') ?>" class="icon-link text-success">
                 See announcement
                 <svg class="bi" width="1em" height="1em">
                     <use xlink:href="#chevron-right" />

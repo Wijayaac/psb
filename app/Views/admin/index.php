@@ -27,7 +27,7 @@
 
             </h2>
             <p>Users must Create new account used before you can register into school, at this stage the user will be asked to register an account to register for school, you can see a list of accounts here</p>
-            <a href="/admin/user" class="icon-link text-primary">
+            <a href="<?= site_url('/admin/registration') ?>" class="icon-link text-primary">
                 See who have an account
                 <svg class="bi" width="1em" height="1em">
                     <use xlink:href="#chevron-right" />
@@ -43,7 +43,7 @@
             </div>
             <h2>Choose School</h2>
             <p>The user can choose the school he wants to attend. You can see the list of students who have registered here. </p>
-            <a href="/admin/register" class="icon-link text-warning">
+            <a href="<?= site_url('/admin/status') ?>" class="icon-link text-warning">
                 Registered users
                 <svg class="bi" width="1em" height="1em">
                     <use xlink:href="#chevron-right" />
@@ -60,7 +60,7 @@
             <h2>
                 Graduation Announcement</h2>
             <p>You can change the registration status to accepted, rejected or reserved. That way the user can see the status of the registration. if the status has changed then it can not be edited again</p>
-            <a href="/admin/register" class="icon-link text-success">
+            <a href="<?= site_url('/admin/status') ?>" class="icon-link text-success">
                 See status
                 <svg class="bi" width="1em" height="1em">
                     <use xlink:href="#chevron-right" />
