@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('assets/dist/css/bootstrap.css') ?>" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>PSB-Online Login</title>
 </head>
 
 <body class="auth text-center">
