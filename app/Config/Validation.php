@@ -49,15 +49,15 @@ class Validation
 
     public $register_errors = [
         'username' => [
-            'alpha_numeric' => 'Username hanya boleh mengandung huruf dan angka',
-            'is_unique' => 'Username sudah dipakai'
+            'alpha_numeric' => 'Username must use number or text',
+            'is_unique' => 'Username already used'
         ],
         'password' => [
-            'min_length' => 'Password harus terdiri dari 8 kata',
-            'alpha_numeric_punct' => 'Password hanya boleh mengandung angka, huruf, dan karakter yang valid'
+            'min_length' => 'Password must have at least 8 characters',
+            'alpha_numeric_punct' => 'Passwords can only contain valid numbers, letters, and characters'
         ],
         'confirm' => [
-            'matches' => 'Konfirmasi password tidak cocok'
+            'matches' => 'Confirmation password does not match'
         ]
     ];
 }

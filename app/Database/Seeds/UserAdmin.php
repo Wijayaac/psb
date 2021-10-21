@@ -17,7 +17,7 @@ class UserAdmin extends Seeder
             'salt' => $salt,
             'role' => 1,
         ];
-        // $this->db->query('INSERT INTO user (username, password,salt,role) VALUES (:username:,:password:,:salt:,:role:',$data);
+
         $this->db->table('user')->insert($data);
     }
 }

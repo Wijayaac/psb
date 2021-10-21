@@ -14,7 +14,7 @@ class UserMigration extends Migration
                 'type' => 'INT',
                 'constraint' => 5,
                 'unsigned' => true,
-                'auto_increment' => 'true'
+                'auto_increment' => true
             ],
             'username' => [
                 'type' => 'VARCHAR',
@@ -40,6 +40,10 @@ class UserMigration extends Migration
                 'type' => 'INT',
                 'constraint' => 2,
             ],
+            'user_id' => [
+                'type' => 'INT',
+                'constraint' => 8,
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('user');
@@ -47,7 +51,7 @@ class UserMigration extends Migration
 
     public function down()
     {
-        //drop database used when migration refresh
+        //drop table used when migration refresh
         $this->forge->dropTable('user');
     }
 }

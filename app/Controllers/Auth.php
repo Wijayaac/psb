@@ -6,6 +6,7 @@ use App\Models\UserModel;
 
 class Auth extends BaseController
 {
+    protected $userModel;
     public function __construct()
     {
         $this->userModel = new UserModel();
@@ -19,10 +20,10 @@ class Auth extends BaseController
     {
         $user = session()->get('role');
         if ($user == 1) {
-            return redirect()->to('/admin');
+            return redirect()->to('/admin/index');
         }
         if ($user == 2) {
-            return redirect()->to('/user');
+            return redirect()->to('/user/index');
         }
 
         return view('auth/login');
@@ -65,14 +66,15 @@ class Auth extends BaseController
             if ($user['password'] == md5($data['password']) . $user['salt']) {
                 $sessionLogin = [
                     'isLogin' => true,
+                    'id' => $user['id'],
                     'username' => $user['username'],
                     'role' => $user['role'],
                 ];
                 $this->session->set($sessionLogin);
                 if ($user['role'] == 1) {
-                    return redirect()->to('/admin');
+                    return redirect()->to('/admin/index');
                 } else {
-                    return redirect()->to('/user');
+                    return redirect()->to('/user/index');
                 }
             } else {
                 session()->setFlashdata('password', 'Incorrect password');
