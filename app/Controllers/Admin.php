@@ -86,6 +86,23 @@ class Admin extends BaseController
         ];
         return $this->response->setJSON($response);
     }
+    public function delete($id)
+    {
+        $dataTranscript = $this->registerModel->find($id);
+        if ($this->registerModel->delete($id)) {
+            if ($dataTranscript['transcript'] !== 'untitled.png') {
+                unlink('uploads/' . $dataTranscript['transcript']);
+            }
+            return redirect()->to('/admin/index');
+        } else {
+            echo "Error";
+        }
+
+        // *return a method for redirect into index method / Home Page
+        // using redirect method built-in CodeIgniter
+
+        return redirect()->to('/admin/index');
+    }
     public function profile()
     {
         $id = session()->get('id');
