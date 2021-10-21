@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Models\SchoolModel;
 use App\Models\RegisterModel;
+use App\Models\UserModel;
 
 class User extends BaseController
 {
     protected $schoolModel;
     protected $registerModel;
+    protected $userModel;
     protected $db;
 
     public function __construct()
     {
         $this->registerModel = new RegisterModel();
         $this->schoolModel = new SchoolModel();
+        $this->userModel = new UserModel();
         $this->session = session();
     }
 
@@ -129,5 +132,14 @@ class User extends BaseController
             'register' => $result,
         ];
         return view('user/print', $data);
+    }
+    public function profile()
+    {
+        $id = session()->get('id');
+        $data = [
+            'id' => $id,
+            'user' => $this->userModel->find($id),
+        ];
+        return view('user/profile', $data);
     }
 }

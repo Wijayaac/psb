@@ -86,4 +86,65 @@ class Admin extends BaseController
         ];
         return $this->response->setJSON($response);
     }
+    public function profile()
+    {
+        $id = session()->get('id');
+        $data = [
+            'id' => $id,
+            'user' => $this->userModel->find($id),
+        ];
+
+        return view('admin/profile', $data);
+    }
+    public function save()
+    {
+        $profileId          = $this->request->getVar('id');
+        $profileName        = $this->request->getVar('name');
+
+        $oldData = $this->userModel->find($profileId);
+        $oldImage = $oldData['photo'];
+        $isValid = $this->validate([
+            'photo' => [
+                'rules' => 'max_size[photo,1024]|is_image[photo]|mime_in[photo,image/jpeg,image/png,image/jpg]',
+                'errors' => [
+                    'max_size' => 'Maximum upload 1024 KB',
+                    'is_image' => 'Please input an Image (jpg/png)',
+                    'mime_in'  => 'Please input an Image (jpg/png)',
+                ]
+            ],
+        ]);
+        if ($isValid) {
+            $imageFile = $this->request->getFile('photo');
+
+            if ($imageFile->getError() === 4) {
+                $imageName = $oldImage;
+            } else if ($oldImage != 'untitled.png') {
+                $imageName = rand() . '.' . $imageFile->guessExtension();
+                $imageFile->move('uploads/photo/', $imageName);
+            } else {
+                $imageName = rand() . '.' . $imageFile->guessExtension();
+                $imageFile->move('uploads/photo/', $imageName);
+            }
+            $data = [
+                'name' => $profileName,
+                'photo' => $imageName,
+            ];
+            $this->userModel->update($profileId, $data);
+            $response = [
+                'status' => 204,
+                'message' => "Profile are updated"
+            ];
+        } else {
+            $response = [
+                'status' => 404,
+                'message' => [
+                    'errorPhoto'  => $this->validator->getError('photo'),
+                ],
+                'data' => [
+                    'name' => $profileName
+                ]
+            ];
+        }
+        return $this->response->setJSON($response);
+    }
 }

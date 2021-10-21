@@ -89,7 +89,7 @@
                     if (response.status == 204) {
                         let close = confirm(response.message);
                         if (close) {
-                            window.location.href = '<?= site_url('admin/index') ?>';
+                            window.location.href = '<?= site_url('user/index') ?>';
                         }
                     } else {
                         var inputError = response.data;
